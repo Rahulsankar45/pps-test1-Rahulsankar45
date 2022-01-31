@@ -1,4 +1,6 @@
- gcc -g p0original.c
+ gcc -g p0original.c
+ bcc -g p0final.c
+bash: bcc: command not found
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,67 +18,21 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x810: file p0original.c, line 20.
+Breakpoint 1 at 0x63e: file p0original.c, line 4.
 (gdb) r
-Starting program: /home/runner/pps-test1-Rahulsankar45-19/a.out 
+Starting program: /home/runner/pps-test1-Rahulsankar45/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p0original.c:20
-20    int a=input ();
-(gdb) s
-input () at p0original.c:3
-3   {
+Breakpoint 1, main () at p0original.c:4
+4     printf("my name is rahul\n");
 (gdb) n
-5     printf("enter two numbers\n");
+my name is rahul
+5     return 0;
 (gdb) n
-enter two numbers
-6     scanf("%d",&a);
-(gdb) n
-5
-7     return a;
-(gdb) n
-8   }
-(gdb) n
-main () at p0original.c:21
-21    int b=input ();
-(gdb) s
-input () at p0original.c:3
-3   {
-(gdb) n
-5     printf("enter two numbers\n");
-(gdb) n
-enter two numbers
-6     scanf("%d",&a);
-(gdb) n
-5
-7     return a;
-(gdb) n
-8   }
-(gdb) n
-main () at p0original.c:22
-22    int x=add (a,b);
-(gdb) s
-add (a=5, b=5) at p0original.c:11
-11  int k=a+b;
-(gdb) n
-12  return k;
-(gdb) n
-13  }
-(gdb) n
-main () at p0original.c:23
-23    output(a, b, x);
-(gdb) s
-output (a=5, b=5, x=10) at p0original.c:16
-16  printf("%d +%d =%d\n",a,b,x);
-(gdb) n
-5 +5 =10
-17  }
-(gdb) p a
-$1 = 5
-(gdb) p b
-$2 = 5
-(gdb) p x
-$3 = 10
-(gdb) n
-main () at p0original.c:24
-24    return 0; 
+6   } 
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 229] will be killed.
+
+Quit anyway? (y or n) y
